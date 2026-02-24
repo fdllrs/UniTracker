@@ -1,16 +1,46 @@
-# React + Vite
+# UniTracker 🎓
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+UniTracker es una herramienta interactiva diseñada para visualizar y gestionar planes de estudio universitarios de forma clara y moderna. Permite hacer un seguimiento detallado del progreso académico, calcular promedios y entender las dependencias entre materias.
 
-Currently, two official plugins are available:
+## ✨ Características Principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 📊 Visualización de Grafo Inteligente
+- **Grafo de Materias**: Un diseño limpio organizado por años y cuatrimestres.
+- **Flechas de Dependencia**: Sistema de rutas ortogonales (giros de 90°) que conectan materias correlativas sin cruzar por encima de las tarjetas.
+- **Resaltado Dinámico**: Al pasar el mouse sobre una materia, se iluminan sus correlativas (anteriores y posteriores) y se atenúa el resto del grafo para mejorar la visibilidad.
 
-## React Compiler
+### 📝 Gestión Académica
+- **Estados de Materia**:
+  - `Pendiente`: Materia no cursada.
+  - `Puedo Cursar`: Se desbloquea automáticamente cuando se cumplen las correlativas.
+  - `Regular`: Materia cursada pero final pendiente.
+  - `Aprobada`: Materia completada totalmente.
+- **Cálculo de Promedio**: Ingresa tus notas y visualiza tu promedio general actualizado en tiempo real en la cabecera.
+- **Carga Horaria**: Seguimiento de horas semanales por materia y totales por plan.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🛠️ Editor de Planes
+- **Modo Edición**: Interfaz intuitiva para personalizar tu plan.
+- **Drag & Drop**: Reordena materias entre cuatrimestres simplemente arrastrándolas.
+- **Gestión de Correlativas**: Crea o elimina dependencias arrastrando desde el ícono de vínculo de una materia a otra.
+- **Añadir/Quitar**: Agregá materias o cuatrimestres enteros con un clic.
 
-## Expanding the ESLint configuration
+### 💾 Persistencia y Plantillas
+- **Auto-guardado**: Todo tu progreso y ediciones se guardan automáticamente en el almacenamiento local de tu navegador (`localStorage`).
+- **Planes de Ejemplo**: Acceso a una biblioteca de planes pre-cargados (UBA, ITBA, UTN, UNA, etc.) para comenzar rápidamente.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Cómo empezar
+
+1. **Instalación**:
+   ```bash
+   npm install
+   ```
+
+2. **Ejecución**:
+   ```bash
+   npm run dev
+   ```
+
+3. **Acceso**: Abre tu navegador en la dirección indicada por la terminal (usualmente `http://localhost:5173`).
+
+---
+Desarrollado con React y mucha dedicación para mejorar la experiencia académica.
