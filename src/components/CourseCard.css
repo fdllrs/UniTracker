@@ -1,0 +1,475 @@
+/* ===== COURSE CARDS ===== */
+.course-card {
+    position: relative;
+    background: var(--bg-card);
+    border: 1.5px solid rgba(100, 130, 180, 0.15);
+    border-radius: var(--border-radius);
+    padding: 0.8rem 1rem;
+    min-width: 155px;
+    min-height: 115px;
+    /* Prevent height shifting when grades toggle */
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    user-select: none;
+    z-index: 2;
+    flex: 1 1 155px;
+}
+
+.course-card--dragging {
+    opacity: 0.35;
+    transform: scale(0.96);
+    border-style: dashed !important;
+    border-color: var(--color-cursar) !important;
+    background: rgba(246, 166, 35, 0.04) !important;
+}
+
+.course-card--dimmed {
+    opacity: 0.25;
+    filter: saturate(30%);
+}
+
+/* Floating card clone (follows cursor) */
+.floating-move-card {
+    position: fixed;
+    z-index: 1000;
+    background: var(--bg-card);
+    border: 1.5px solid var(--color-cursar);
+    border-radius: var(--border-radius);
+    padding: 0.8rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    pointer-events: none;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        0 0 16px rgba(246, 166, 35, 0.15);
+    cursor: grabbing;
+    transform: scale(1.03);
+    opacity: 0.95;
+}
+
+.floating-move-card__name {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+.course-card:hover {
+    background: var(--bg-card-hover);
+}
+
+
+
+.course-card__name {
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--text-primary);
+}
+
+.course-card__status {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.course-card__hours {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    margin-top: 0.15rem;
+    letter-spacing: 0.02em;
+}
+
+.course-card__hours-input {
+    width: 38px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid rgba(100, 130, 180, 0.25);
+    border-radius: 4px;
+    padding: 0.15rem 0.3rem;
+    font-family: inherit;
+    font-size: 0.68rem;
+    text-align: center;
+    outline: none;
+    transition: border-color var(--transition-speed) ease;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.course-card__hours-input::-webkit-inner-spin-button,
+.course-card__hours-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.course-card__hours-input:focus {
+    border-color: var(--color-cursar);
+}
+
+.course-card__hours-label {
+    font-size: 0.58rem;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+}
+
+/* Grade area — animated wrapper */
+@keyframes gradeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+        max-height: 0;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 30px;
+    }
+}
+
+.course-card__grade-area {
+    animation: gradeSlideIn 0.3s ease forwards;
+    margin-top: 0.15rem;
+}
+
+.course-card__grade {
+    font-size: 0.6rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: color var(--transition-speed) ease;
+}
+
+/* + Nota button */
+.course-card__grade-btn {
+    background: none;
+    border: 1px dashed rgba(100, 130, 180, 0.25);
+    border-radius: 4px;
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 0.55rem;
+    font-weight: 600;
+    padding: 0.1rem 0.5rem;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    letter-spacing: 0.03em;
+}
+
+.course-card__grade-btn:hover {
+    border-color: var(--text-secondary);
+    color: var(--text-secondary);
+    background: rgba(246, 166, 35, 0.06);
+}
+
+.course-card__grade-inline {
+    width: 46px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid rgba(100, 130, 180, 0.3);
+    border-radius: 4px;
+    padding: 0.15rem 0.3rem;
+    font-family: inherit;
+    font-size: 0.62rem;
+    text-align: center;
+    outline: none;
+    transition: all var(--transition-speed) ease;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    animation: gradeSlideIn 0.2s ease forwards;
+}
+
+.course-card__grade-inline::-webkit-inner-spin-button,
+.course-card__grade-inline::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.course-card__grade-inline:focus {
+    border-color: var(--text-primary);
+    box-shadow: 0 0 0 2px rgba(246, 166, 35, 0.12);
+}
+
+.course-card__grade-inline::placeholder {
+    color: var(--text-muted);
+    font-size: 0.55rem;
+}
+
+/* Status variants */
+.course-card--pendiente {
+    border-color: var(--color-pendiente);
+}
+
+.course-card--pendiente .course-card__status {
+    color: var(--color-pendiente-text);
+}
+
+.course-card--regular {
+    border-color: var(--color-regular);
+    box-shadow: 0 0 16px var(--color-regular-glow), inset 0 0 16px rgba(246, 166, 35, 0.03);
+}
+
+.course-card--regular .course-card__status {
+    color: var(--color-regular-text);
+}
+
+.course-card--aprobada {
+    border-color: var(--color-aprobada);
+    box-shadow: 0 0 16px var(--color-aprobada-glow), inset 0 0 16px rgba(56, 217, 122, 0.03);
+}
+
+.course-card--aprobada .course-card__status {
+    color: var(--color-aprobada-text);
+}
+
+.course-card--cursar {
+    border-color: var(--color-cursar);
+    box-shadow: 0 0 16px var(--color-cursar-glow), inset 0 0 16px rgba(34, 211, 238, 0.03);
+    animation: cursar-pulse 3s ease-in-out infinite;
+}
+
+.course-card--cursar .course-card__status {
+    color: var(--color-cursar-text);
+}
+
+@keyframes cursar-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 16px var(--color-cursar-glow);
+    }
+
+    50% {
+        box-shadow: 0 0 24px var(--color-cursar-glow), 0 0 40px rgba(34, 211, 238, 0.1);
+    }
+}
+
+/* ===== EDIT MODE — Card elements ===== */
+
+/* ===== EDIT MODE ELEMENT TRANSITIONS ===== */
+
+/* Drag handle — always rendered, visibility controlled by CSS */
+.course-card__drag-handle {
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: var(--text-muted);
+    cursor: grab;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.course-card--editing .course-card__drag-handle {
+    opacity: 0.4;
+    pointer-events: auto;
+}
+
+.course-card__drag-handle:hover {
+    opacity: 1 !important;
+    color: var(--color-cursar);
+}
+
+.course-card__drag-handle:active {
+    cursor: grabbing;
+}
+
+.course-card__drag-handle svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+}
+
+/* Remove button — always rendered, fades in during edit */
+.course-card__remove {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #ef4444;
+    color: #fff;
+    border: 2px solid var(--bg-primary);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.35s ease;
+    z-index: 5;
+    padding: 0;
+    pointer-events: none;
+    transform: scale(0.7);
+}
+
+.course-card--editing .course-card__remove {
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.course-card--editing:hover .course-card__remove {
+    opacity: 1;
+}
+
+.course-card__remove:hover {
+    background: #dc2626;
+    transform: scale(1.15) !important;
+}
+
+/* Hours edit row — slides in/out with max-height */
+.course-card__hours-edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    margin-top: 0.3rem;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.35s ease;
+}
+
+.course-card--editing .course-card__hours-edit {
+    max-height: 30px;
+    opacity: 1;
+}
+
+/* Grade edit row — slides in/out */
+.course-card__grade-edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    margin-top: 0.15rem;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.35s ease;
+}
+
+.course-card--editing .course-card__grade-edit {
+    max-height: 30px;
+    opacity: 1;
+}
+
+/* "Agregar materia" add-card — fades and grows layout */
+.course-card--add {
+    border: 2px dashed rgba(100, 130, 180, 0.3);
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 115px;
+    /* Matches normal cards */
+    transition: all 0.35s ease;
+    overflow: hidden;
+    min-width: 155px;
+    /* ensure layout reserves space properly when entering */
+}
+
+.course-card--add-entering {
+    animation: growAddCard 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.course-card--add-exiting {
+    animation: growAddCard 0.5s cubic-bezier(0.16, 1, 0.3, 1) reverse forwards;
+}
+
+@keyframes growAddCard {
+    0% {
+        opacity: 0;
+        min-width: 0;
+        max-width: 0;
+        flex-basis: 0;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 0;
+        margin-right: 0;
+        border-width: 0;
+    }
+
+    100% {
+        opacity: 1;
+        min-width: 155px;
+        max-width: 300px;
+        flex-basis: 155px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+.course-card--add:hover {
+    border-color: var(--color-cursar);
+    background: rgba(246, 166, 35, 0.04);
+}
+
+.course-card--add__icon {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    line-height: 1;
+    transition: color var(--transition-speed) ease;
+}
+
+.course-card--add:hover .course-card--add__icon {
+    color: var(--color-cursar);
+}
+
+.course-card--add__text {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.course-card--add:hover .course-card--add__text {
+    color: var(--color-cursar-text);
+}
+
+/* Editing card cursor */
+.course-card--editing {
+    cursor: crosshair;
+}
+
+@media (max-width: 768px) {
+    .course-card {
+        min-width: 120px;
+        padding: 0.7rem 0.9rem;
+        flex: 1 1 120px;
+        max-width: none;
+    }
+
+    .course-card__name {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .course-card {
+        min-width: 100px;
+        flex: 1 1 100px;
+    }
+}

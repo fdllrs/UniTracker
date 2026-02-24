@@ -1,0 +1,212 @@
+/* ===== PREFERENCES MODAL ===== */
+
+.prefs-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(8, 12, 24, 0.4);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: prefsOverlayIn 0.25s ease;
+}
+
+@keyframes prefsOverlayIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.prefs-modal {
+    background: rgba(15, 22, 40, 0.97);
+    border: 1px solid rgba(100, 130, 180, 0.2);
+    border-radius: 18px;
+    padding: 2rem 2.5rem;
+    min-width: 360px;
+    max-width: 500px;
+    box-shadow:
+        0 24px 64px rgba(0, 0, 0, 0.5),
+        0 8px 24px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    animation: prefsModalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+@keyframes prefsModalIn {
+    from {
+        opacity: 0;
+        transform: scale(0.92) translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.prefs-modal__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.prefs-modal__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid rgba(100, 130, 180, 0.15);
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.prefs-modal__close:hover {
+    background: rgba(100, 130, 180, 0.1);
+    color: var(--text-primary);
+    border-color: rgba(100, 130, 180, 0.3);
+}
+
+.prefs-modal__section {
+    margin-bottom: 1.5rem;
+}
+
+.prefs-modal__section:last-child {
+    margin-bottom: 0;
+}
+
+.prefs-modal__section-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.85rem;
+}
+
+/* ─── Text fields ─── */
+.prefs-modal__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 0.9rem;
+}
+
+.prefs-modal__field:last-child {
+    margin-bottom: 0;
+}
+
+.prefs-modal__label {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.prefs-modal__input {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(100, 130, 180, 0.15);
+    border-radius: 10px;
+    padding: 0.6rem 0.85rem;
+    color: var(--text-primary);
+    font-size: 0.88rem;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.prefs-modal__input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.5;
+}
+
+.prefs-modal__input:focus {
+    border-color: rgba(100, 160, 255, 0.4);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 0 3px rgba(100, 160, 255, 0.08);
+}
+
+/* ─── Toggle switches ─── */
+.prefs-modal__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.55rem 0;
+    cursor: pointer;
+    user-select: none;
+    transition: opacity 0.15s ease;
+}
+
+.prefs-modal__toggle:hover {
+    opacity: 0.85;
+}
+
+.prefs-modal__toggle-text {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.prefs-modal__switch-wrapper {
+    position: relative;
+    width: 42px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.prefs-modal__switch-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.prefs-modal__switch {
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background: rgba(100, 130, 180, 0.2);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.prefs-modal__switch::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.7);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.prefs-modal__switch-input:checked+.prefs-modal__switch {
+    background: rgba(56, 217, 122, 0.6);
+}
+
+.prefs-modal__switch-input:checked+.prefs-modal__switch::after {
+    transform: translateX(18px);
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.prefs-modal__switch-input:focus-visible+.prefs-modal__switch {
+    box-shadow: 0 0 0 3px rgba(100, 160, 255, 0.25);
+}

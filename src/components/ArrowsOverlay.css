@@ -1,0 +1,23 @@
+/* SVG arrows layer */
+.arrows-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: visible;
+}
+
+.arrows-svg .arrow-path {
+    fill: none;
+    stroke-width: 1.8;
+    transition: stroke-width var(--transition-speed) ease, filter var(--transition-speed) ease;
+}
+
+/* Drag arrow overlay */
+.drag-arrow-svg {
+    z-index: 50;
+    pointer-events: none;
+}

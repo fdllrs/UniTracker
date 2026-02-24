@@ -1,0 +1,108 @@
+const DEFAULT_STUDY_PLAN = {
+    plan: "Plan de Estudios 2023",
+    subtitle: "Licenciatura en Ciencias de la Computación",
+    years: [
+        {
+            year: 1,
+            label: "Año 1",
+            semesters: [
+                {
+                    semester: 1,
+                    label: "1° Cuatrimestre",
+                    courses: [
+                        { id: "algebra-1", name: "Álgebra I", dependencies: [], weeklyHours: 10 },
+                        { id: "intro-prog", name: "Introducción a la Programación", dependencies: [], weeklyHours: 10 }
+                    ]
+                },
+                {
+                    semester: 2,
+                    label: "2° Cuatrimestre",
+                    courses: [
+                        { id: "analisis-1", name: "Análisis I", dependencies: ["algebra-1"], weeklyHours: 10 },
+                        { id: "algo-ed", name: "Algoritmos y Estructuras de Datos", dependencies: ["intro-prog", "algebra-1"], weeklyHours: 15 }
+                    ]
+                }
+            ]
+        },
+        {
+            year: 2,
+            label: "Año 2",
+            semesters: [
+                {
+                    semester: 1,
+                    label: "3° Cuatrimestre",
+                    courses: [
+                        { id: "tec-diseno", name: "Técnicas de Diseño de Algoritmos", dependencies: ["algo-ed"], weeklyHours: 10 },
+                        { id: "sist-digitales", name: "Sistemas Digitales", dependencies: ["algo-ed"], weeklyHours: 5 },
+                        { id: "paradigmas", name: "Paradigmas de Programación", dependencies: ["algo-ed"], weeklyHours: 10 }
+                    ]
+                },
+                {
+                    semester: 2,
+                    label: "4° Cuatrimestre",
+                    courses: [
+                        { id: "leng-formales", name: "Lenguajes Formales, Autómatas y Computabilidad", dependencies: ["tec-diseno"], weeklyHours: 5 },
+                        { id: "arq-comp", name: "Arquitectura y Organización de Computadores", dependencies: ["sist-digitales"], weeklyHours: 10 },
+                        { id: "ing-software", name: "Ingeniería de Software", dependencies: ["paradigmas"], weeklyHours: 10 }
+                    ]
+                }
+            ]
+        },
+        {
+            year: 3,
+            label: "Año 3",
+            semesters: [
+                {
+                    semester: 1,
+                    label: "5° Cuatrimestre",
+                    courses: [
+                        { id: "algebra-lineal", name: "Álgebra Lineal Computacional", dependencies: ["analisis-1"], weeklyHours: 10 },
+                        { id: "complejidad", name: "Complejidad Computacional", dependencies: ["leng-formales"], weeklyHours: 5 },
+                        { id: "sist-operativos", name: "Sistemas Operativos", dependencies: ["arq-comp"], weeklyHours: 10 }
+                    ]
+                },
+                {
+                    semester: 2,
+                    label: "6° Cuatrimestre",
+                    courses: [
+                        { id: "estadistica", name: "Estadística Computacional", dependencies: ["algebra-lineal"], weeklyHours: 10 },
+                        { id: "optativas-100a", name: "Optativas (80 horas)", dependencies: [], weeklyHours: 5 },
+                        { id: "almacenamiento", name: "Almacenamiento y Recuperación de la Información", dependencies: ["ing-software"], weeklyHours: 10 }
+                    ]
+                }
+            ]
+        },
+        {
+            year: 4,
+            label: "Año 4",
+            semesters: [
+                {
+                    semester: 1,
+                    label: "7° Cuatrimestre",
+                    courses: [
+                        { id: "optativas-100b", name: "Optativas (80 horas)", dependencies: [], weeklyHours: 5 },
+                        { id: "redes", name: "Redes de Comunicaciones y Cómputo Distribuido", dependencies: ["sist-operativos"], weeklyHours: 10 },
+                        { id: "prog-concurrente", name: "Programación Concurrente y Paralela", dependencies: ["sist-operativos"], weeklyHours: 10 }
+                    ]
+                },
+                {
+                    semester: 2,
+                    label: "8° Cuatrimestre",
+                    courses: [
+                        { id: "seminario", name: "Seminario sobre Tecnología y Sociedad", dependencies: [] },
+                        { id: "practica-social", name: "Práctica Social Educativa", dependencies: [] },
+                        { id: "optativas-160", name: "Optativas (160 horas)", dependencies: [], weeklyHours: 10 },
+                        { id: "trabajo-final", name: "Trabajo Final - Tesis de Licenciatura", dependencies: [] }
+                    ]
+                }
+            ]
+        }
+    ]
+};
+
+export default DEFAULT_STUDY_PLAN;
+
+
+
+
+
