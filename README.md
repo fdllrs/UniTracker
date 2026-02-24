@@ -28,19 +28,3 @@ UniTracker es una herramienta interactiva diseñada para visualizar y gestionar 
 - **Auto-guardado**: Todo tu progreso y ediciones se guardan automáticamente en el almacenamiento local de tu navegador (`localStorage`).
 - **Planes de Ejemplo**: Acceso a una biblioteca de planes pre-cargados (UBA, ITBA, UTN, UNA, etc.) para comenzar rápidamente.
 
-## 🚀 Cómo empezar
-
-1. **Instalación**:
-   ```bash
-   npm install
-   ```
-
-2. **Ejecución**:
-   ```bash
-   npm run dev
-   ```
-
-3. **Acceso**: Abre tu navegador en la dirección indicada por la terminal (usualmente `http://localhost:5173`).
-
----
-Desarrollado con React y mucha dedicación para mejorar la experiencia académica.
