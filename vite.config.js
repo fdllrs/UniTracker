@@ -4,6 +4,7 @@ import { resolve } from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
+    base: '/unitracker/',
     plugins: [react()],
     resolve: {
         alias: {
