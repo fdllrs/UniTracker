@@ -24,14 +24,14 @@ export default function PreferencesModal({
     const handlePlanNameBlur = () => {
         const trimmed = localPlanName.trim();
         if (trimmed && trimmed !== planName) {
-            onUpdatePlanMeta({ plan: trimmed });
+            onUpdatePlanMeta({ subtitle: trimmed });
         }
     };
 
     const handleDegreeBlur = () => {
         const trimmed = localDegree.trim();
         if (trimmed !== degreeName) {
-            onUpdatePlanMeta({ subtitle: trimmed });
+            onUpdatePlanMeta({ plan: trimmed });
         }
     };
 
@@ -50,20 +50,7 @@ export default function PreferencesModal({
 
                 {/* ─── Plan info ─── */}
                 <section className="prefs-modal__section">
-                    <h3 className="prefs-modal__section-title">Información del plan</h3>
-
-                    <label className="prefs-modal__field">
-                        <span className="prefs-modal__label">Nombre del plan</span>
-                        <input
-                            type="text"
-                            className="prefs-modal__input"
-                            value={localPlanName}
-                            onChange={(e) => setLocalPlanName(e.target.value)}
-                            onBlur={handlePlanNameBlur}
-                            placeholder="Plan de Estudios"
-                        />
-                    </label>
-
+                    <h3 className="prefs-modal__section-title">Información del plan de estudios</h3>
                     <label className="prefs-modal__field">
                         <span className="prefs-modal__label">Carrera</span>
                         <input
@@ -75,6 +62,19 @@ export default function PreferencesModal({
                             placeholder="Licenciatura en Computación"
                         />
                     </label>
+                    <label className="prefs-modal__field">
+                        <span className="prefs-modal__label">Nombre del plan (opcional)</span>
+                        <input
+                            type="text"
+                            className="prefs-modal__input"
+                            value={localPlanName}
+                            onChange={(e) => setLocalPlanName(e.target.value)}
+                            onBlur={handlePlanNameBlur}
+                            placeholder="Plan de Estudios"
+                        />
+                    </label>
+
+
                 </section>
 
                 {/* ─── Display toggles ─── */}

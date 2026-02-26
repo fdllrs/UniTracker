@@ -99,7 +99,7 @@ export default function ImportPlanModal({ open, onClose, onImport }) {
                 setJsonStr(jsonContent);
                 setError(null);
             } else {
-                setError("El archivo debe ser .json o .js");
+                setError("El archivo debe ser .json");
             }
         };
         reader.onerror = () => {
@@ -117,7 +117,7 @@ export default function ImportPlanModal({ open, onClose, onImport }) {
                 <h2 className="prefs-modal__title">Importar Plan JSON</h2>
 
                 <p className="import-modal__text">
-                    Pega tu plan de estudios en formato JSON o carga un archivo estructurado:
+                    Pegá tu plan de estudios en formato JSON o cargá un archivo estructurado:
                 </p>
 
                 <textarea

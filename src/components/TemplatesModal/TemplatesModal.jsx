@@ -13,8 +13,8 @@ for (const path in planModules) {
             templates.push({
                 path,
                 planData,
-                title: planData.subtitle || '',
-                subtitle: planData.plan || ''
+                title: planData.plan || '',
+                subtitle: planData.subtitle || ''
             });
         }
     }
@@ -50,7 +50,7 @@ export default function TemplatesModal({ open, onClose, onSelect, currentPlan, c
     }, [open, onClose]);
 
     const handlePrepareSave = () => {
-        setSaveTitle(currentPlan?.plan || 'Mi Plan');
+        setSaveTitle(currentPlan?.plan || 'Mi Carrera');
         setSaveSubtitle(currentPlan?.subtitle || '');
         setIsSaving(true);
     };
@@ -144,7 +144,7 @@ export default function TemplatesModal({ open, onClose, onSelect, currentPlan, c
                             ))}
                             {customPlans.length === 0 && (
                                 <div className="templates-modal__empty">
-                                    No tienes planes guardados. Importa un plan o guarda el actual.
+                                    No tenés planes guardados. Importá un plan o guardá el actual.
                                 </div>
                             )}
                         </div>
@@ -161,7 +161,7 @@ export default function TemplatesModal({ open, onClose, onSelect, currentPlan, c
                                 <h3 className="templates-modal__save-title">Confirmar detalles del plan</h3>
 
                                 <label className="prefs-modal__field templates-modal__field">
-                                    <span className="prefs-modal__label">Nombre del plan</span>
+                                    <span className="prefs-modal__label">Carrera</span>
                                     <input
                                         type="text"
                                         className="prefs-modal__input"
@@ -171,7 +171,7 @@ export default function TemplatesModal({ open, onClose, onSelect, currentPlan, c
                                     />
                                 </label>
                                 <label className="prefs-modal__field templates-modal__field--last">
-                                    <span className="prefs-modal__label">Subtítulo (Opcional)</span>
+                                    <span className="prefs-modal__label">Plan de estudios (Opcional)</span>
                                     <input
                                         type="text"
                                         className="prefs-modal__input"

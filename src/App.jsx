@@ -420,8 +420,8 @@ export default function App() {
                 onClose={() => setShowPrefsModal(false)}
                 prefs={prefs}
                 onUpdatePref={updatePref}
-                planName={studyPlan.plan || ''}
-                degreeName={studyPlan.subtitle || ''}
+                planName={studyPlan.subtitle || ''}
+                degreeName={studyPlan.plan || ''}
                 onUpdatePlanMeta={updatePlanMeta}
             />
 
