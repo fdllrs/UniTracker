@@ -6,21 +6,21 @@ const planModules = import.meta.glob('../../data/*.json', { eager: true });
 const templates = [];
 
 for (const path in planModules) {
-    const mod = planModules[path];
-    // For JSON files, Vite eager glob puts the object in .default
-    // For JS files, it might be in .default or .DEFAULT_STUDY_PLAN
-    const planData = mod.default || mod;
-    if (planData && planData.plan) {
-        templates.push({
-            path,
-            planData,
-            title: planData.plan,
-            subtitle: planData.subtitle || ''
-        });
+    if (!path.includes('emptyPlan.json')) {
+        const mod = planModules[path];
+        const planData = mod.default || mod;
+        if (planData && planData.plan) {
+            templates.push({
+                path,
+                planData,
+                title: planData.subtitle || '',
+                subtitle: planData.plan || ''
+            });
+        }
     }
 }
 
-export default function TemplatesModal({ open, onClose, onSelect, currentPlan, confirm }) {
+export default function TemplatesModal({ open, onClose, onSelect, currentPlan, currentStatuses, currentGrades, confirm }) {
     const [tab, setTab] = useState('custom');
     const [customPlans, setCustomPlans] = useState([]);
     const [isSaving, setIsSaving] = useState(false);
@@ -60,6 +60,12 @@ export default function TemplatesModal({ open, onClose, onSelect, currentPlan, c
         const toSave = structuredClone(currentPlan);
         toSave.plan = saveTitle.trim();
         toSave.subtitle = saveSubtitle.trim();
+
+        // Save current progress
+        toSave.userData = {
+            statuses: currentStatuses || {},
+            grades: currentGrades || {}
+        };
 
         // Check if plan with same name already exists to either replace or add
         const newCustom = customPlans.filter(p => p.plan !== toSave.plan);
@@ -105,7 +111,7 @@ export default function TemplatesModal({ open, onClose, onSelect, currentPlan, c
                         onClick={() => { setTab('custom'); setIsSaving(false); }}
                         className={`templates-modal__tab-btn ${tab === 'custom' ? 'templates-modal__tab-btn--active' : ''}`}
                     >
-                        Tus Planes guardados
+                        Mis Planes guardados
                     </button>
                     <button
                         onClick={() => { setTab('examples'); setIsSaving(false); }}
@@ -195,17 +201,19 @@ export default function TemplatesModal({ open, onClose, onSelect, currentPlan, c
                 )}
 
                 {tab === 'examples' && (
-                    <div className="templates-modal__list">
-                        {templates.map(t => (
-                            <button
-                                key={t.path}
-                                onClick={() => onSelect(t.planData)}
-                                className="prefs-modal__list-item"
-                            >
-                                <span className="prefs-modal__list-item-title">{t.title}</span>
-                                {t.subtitle && <span className="prefs-modal__list-item-subtitle">{t.subtitle}</span>}
-                            </button>
-                        ))}
+                    <div className="templates-modal__tab-content">
+                        <div className="templates-modal__list">
+                            {templates.map(t => (
+                                <button
+                                    key={t.path}
+                                    onClick={() => onSelect(t.planData)}
+                                    className="prefs-modal__list-item"
+                                >
+                                    <span className="prefs-modal__list-item-title">{t.title}</span>
+                                    {t.subtitle && <span className="prefs-modal__list-item-subtitle">{t.subtitle}</span>}
+                                </button>
+                            ))}
+                        </div>
                     </div>
                 )}
             </div>

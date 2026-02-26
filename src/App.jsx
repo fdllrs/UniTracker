@@ -28,7 +28,7 @@ export default function App() {
     // ─── Domain state ───────────────────────────────────────
     const plan = useStudyPlan();
     const {
-        studyPlan, allCourses, grades, stats,
+        studyPlan, allCourses, statuses, grades, stats,
         getEffectiveStatus, getSemesterIndex,
         cycleStatus, resetStatuses, resetGrades, setGrade,
         resetPlan, updatePlan, startEditing, savePlan, discardEdits,
@@ -191,8 +191,8 @@ export default function App() {
     const handleTemplateSelect = useCallback((planData) => {
         setShowTemplatesModal(false);
         confirm.confirm({
-            title: 'Cargar plan de ejemplo',
-            message: `¿Reemplazar tu plan actual con "${planData.plan}"? Perderás cualquier edición, nota o progreso actual.`,
+            title: 'Cargar plan de estudios',
+            message: `¿Reemplazar tu plan actual con "${planData.plan}"? Perderás cualquier edición no guardada en el plan actual.`,
             confirmLabel: 'Cargar plan',
             confirmDanger: true,
             onConfirm: () => {
@@ -200,8 +200,20 @@ export default function App() {
                 setDeleteAnim(true);
                 setTimeout(() => {
                     updatePlan(structuredClone(planData));
-                    resetStatuses();
-                    resetGrades();
+
+                    // Restore or clear progress
+                    if (planData.userData) {
+                        const { statuses: savedStatuses, grades: savedGrades } = planData.userData;
+                        // We need to update the actual storage/state
+                        localStorage.setItem('unitracker-statuses', JSON.stringify(savedStatuses || {}));
+                        localStorage.setItem('unitracker-grades', JSON.stringify(savedGrades || {}));
+                        // Refresh the UI hooks (resetting counts as a state trigger usually)
+                        window.location.reload(); // Simplest way to force all sub-hooks to reload storage
+                    } else {
+                        resetStatuses();
+                        resetGrades();
+                    }
+
                     localStorage.setItem('unitracker-plan', JSON.stringify(planData));
                     editMode.forceExit();
                     toast.show('✓ Plan cargado exitosamente');
@@ -212,22 +224,37 @@ export default function App() {
     }, [updatePlan, resetStatuses, resetGrades, editMode, confirm, toast]);
 
     const handleExportPlan = useCallback(() => {
-        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(studyPlan, null, 2));
+        const toExport = structuredClone(studyPlan);
+        toExport.userData = {
+            statuses: statuses || {},
+            grades: grades || {}
+        };
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(toExport, null, 2));
         const downloadAnchorNode = document.createElement('a');
         downloadAnchorNode.setAttribute("href", dataStr);
         downloadAnchorNode.setAttribute("download", (studyPlan.plan || "plan").replace(/\s+/g, '_') + ".json");
         document.body.appendChild(downloadAnchorNode);
         downloadAnchorNode.click();
         downloadAnchorNode.remove();
-    }, [studyPlan]);
+    }, [studyPlan, statuses, grades]);
 
     const handleImportPlan = useCallback((importedPlan) => {
         setShowImportModal(false);
         setDeleteAnim(true);
         setTimeout(() => {
             updatePlan(structuredClone(importedPlan));
-            resetStatuses();
-            resetGrades();
+
+            // Restore or clear progress
+            if (importedPlan.userData) {
+                const { statuses: savedStatuses, grades: savedGrades } = importedPlan.userData;
+                localStorage.setItem('unitracker-statuses', JSON.stringify(savedStatuses || {}));
+                localStorage.setItem('unitracker-grades', JSON.stringify(savedGrades || {}));
+                window.location.reload(); // Refresh the hooks
+            } else {
+                resetStatuses();
+                resetGrades();
+            }
+
             localStorage.setItem('unitracker-plan', JSON.stringify(importedPlan));
             editMode.forceExit();
             toast.show('✓ Plan importado exitosamente');
@@ -403,6 +430,8 @@ export default function App() {
                 onClose={() => setShowTemplatesModal(false)}
                 onSelect={handleTemplateSelect}
                 currentPlan={studyPlan}
+                currentStatuses={statuses}
+                currentGrades={grades}
                 confirm={confirm}
             />
 
