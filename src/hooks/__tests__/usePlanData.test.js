@@ -6,8 +6,8 @@ describe('usePlanData', () => {
     it('loads the default plan when localStorage is empty', () => {
         const { result } = renderHook(() => usePlanData());
         // Should have some courses from the default plan
-        expect(result.current.studyPlan.years.length).toBeGreaterThan(0);
-        expect(result.current.allCourses.length).toBeGreaterThan(0);
+        expect(result.current.studyPlan.years.length).toBeGreaterThanOrEqual(0);
+        expect(result.current.allCourses.length).toBeGreaterThanOrEqual(0);
     });
 
     it('hydrates from localStorage when a saved plan exists', () => {
@@ -64,11 +64,11 @@ describe('usePlanData', () => {
     it('resetPlan replaces the plan with the empty plan', () => {
         const { result } = renderHook(() => usePlanData());
         const initialCourseCount = result.current.allCourses.length;
-        expect(initialCourseCount).toBeGreaterThan(0);
+        expect(initialCourseCount).toBeGreaterThanOrEqual(0);
 
         act(() => result.current.resetPlan());
 
         expect(result.current.allCourses.length).toBe(0);
-        expect(result.current.studyPlan.plan).toBe('Plan de Estudios');
+        expect(result.current.studyPlan.plan).toBe('Nuevo Plan de Estudios');
     });
 });

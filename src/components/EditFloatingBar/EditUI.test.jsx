@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import EditFloatingBar from '@/components/EditFloatingBar';
-import FloatingCard from '@/components/FloatingCard';
+import EditFloatingBar from '@/components/EditFloatingBar/EditFloatingBar';
+import FloatingCard from '@/components/FloatingCard/FloatingCard';
 
 describe('EditFloatingBar', () => {
     it('returns null when not in edit mode and not exiting', () => {
