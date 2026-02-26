@@ -48,7 +48,7 @@ export default function App() {
     const containerRef = useRef(null);
     const hoverTimeoutRef = useRef(null);
     const currentHoverRef = useRef(null);
-    const HOVER_DELAY_MS = 400; // Change this value to adjust the hover delay
+    const HOVER_DELAY_MS = 700;
 
     const [highlightedCourse, setHighlightedCourse] = useState(null);
     const [pendingAddSemIndex, setPendingAddSemIndex] = useState(null);
@@ -60,6 +60,13 @@ export default function App() {
 
     // ─── Handlers ───────────────────────────────────────────
     useEffect(() => {
+        if (editMode.active) {
+            setHighlightedCourse(null);
+            currentHoverRef.current = null;
+            if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+            return;
+        }
+
         const handleGlobalMouseMove = (e) => {
             const card = e.target.closest('.course-card');
             const courseId = card ? card.dataset.courseId : null;
@@ -82,7 +89,7 @@ export default function App() {
 
         window.addEventListener('mousemove', handleGlobalMouseMove);
         return () => window.removeEventListener('mousemove', handleGlobalMouseMove);
-    }, []);
+    }, [editMode.active]);
 
     const handleSave = useCallback(() => {
         confirm.confirm({
