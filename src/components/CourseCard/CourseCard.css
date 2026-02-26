@@ -112,7 +112,7 @@
 }
 
 .course-card__hours-input:focus {
-    border-color: var(--color-cursar);
+    border-color: var(--text-secondary);
 }
 
 .course-card__hours-label {

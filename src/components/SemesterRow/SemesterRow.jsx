@@ -23,6 +23,7 @@ export default function SemesterRow({
     activeCards,
 }) {
 
+
     return (
         <div
             className="semester-row"
