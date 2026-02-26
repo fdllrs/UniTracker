@@ -396,11 +396,188 @@
                     "courses": [
                         {
                             "id": "683",
-                            "name": "Oficio y Técnica de las Artes Visuales II (a elección entre: (Pintura - Grabado y Arte Impreso - Escultura)",
+                            "name": "Oficio y Técnica de las Artes Visuales II (a elección entre: Pintura – Grabado y Arte Impreso – Escultura)",
                             "dependencies": [
                                 "Nivel I OTAV elegida"
                             ],
                             "weeklyHours": 6
+                        },
+                        {
+                            "id": "618",
+                            "name": "Prácticas de Laboratorio Física, Química, Biología VI",
+                            "dependencies": [
+                                "617"
+                            ],
+                            "weeklyHours": 3
+                        },
+                        {
+                            "id": "620",
+                            "name": "Conservación-Restauración de Documentos Gráficos y Papel",
+                            "dependencies": [
+                                "619",
+                                "386",
+                                "433",
+                                "41",
+                                "45",
+                                "581",
+                                "59"
+                            ],
+                            "weeklyHours": 6
+                        },
+                        {
+                            "id": "621",
+                            "name": "Conservación-Restauración de Escultura y Arqueología",
+                            "dependencies": [
+                                "619",
+                                "386",
+                                "433",
+                                "41",
+                                "45",
+                                "581",
+                                "59"
+                            ],
+                            "weeklyHours": 6
+                        },
+                        {
+                            "id": "622",
+                            "name": "Seguridad e Higiene",
+                            "dependencies": [
+                                "478"
+                            ],
+                            "weeklyHours": 2
+                        },
+                        {
+                            "id": "592",
+                            "name": "Idioma II",
+                            "dependencies": [
+                                "591"
+                            ],
+                            "weeklyHours": 2
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "year": 4,
+            "label": "4to Año",
+            "semesters": [
+                {
+                    "semester": "Anual",
+                    "label": "Anual",
+                    "courses": [
+                        {
+                            "id": "668",
+                            "name": "Proyecto de Graduación",
+                            "dependencies": [],
+                            "weeklyHours": 0
+                        }
+                    ]
+                },
+                {
+                    "semester": 7,
+                    "label": "7° Cuatrimestre",
+                    "courses": [
+                        {
+                            "id": "626",
+                            "name": "Procedimientos Pictóricos",
+                            "dependencies": [
+                                "550",
+                                "617",
+                                "132",
+                                "620",
+                                "621"
+                            ],
+                            "weeklyHours": 3
+                        },
+                        {
+                            "id": "624",
+                            "name": "Color y Retoque Pictórico I",
+                            "dependencies": [
+                                "550",
+                                "617",
+                                "132",
+                                "620",
+                                "621"
+                            ],
+                            "weeklyHours": 3
+                        },
+                        {
+                            "id": "623",
+                            "name": "Conservación-Restauración de Materiales no Tradicionales",
+                            "dependencies": [
+                                "550",
+                                "617",
+                                "132",
+                                "620",
+                                "621"
+                            ],
+                            "weeklyHours": 3
+                        },
+                        {
+                            "id": "627",
+                            "name": "Conservación-Restauración de Pintura I",
+                            "dependencies": [
+                                "550",
+                                "617",
+                                "132",
+                                "620",
+                                "621"
+                            ],
+                            "weeklyHours": 8
+                        },
+                        {
+                            "id": "642",
+                            "name": "Seminario La obra de Arte y su sentido Histórico Cultural Social",
+                            "dependencies": [],
+                            "weeklyHours": 3
+                        }
+                    ]
+                },
+                {
+                    "semester": 8,
+                    "label": "8° Cuatrimestre",
+                    "courses": [
+                        {
+                            "id": "625",
+                            "name": "Color y Retoque Pictórico II",
+                            "dependencies": [
+                                "624"
+                            ],
+                            "weeklyHours": 3
+                        },
+                        {
+                            "id": "636",
+                            "name": "Depósito, Traslado y Exposición",
+                            "dependencies": [
+                                "623"
+                            ],
+                            "weeklyHours": 3
+                        },
+                        {
+                            "id": "628",
+                            "name": "Conservación-Restauración de Pintura II",
+                            "dependencies": [
+                                "627"
+                            ],
+                            "weeklyHours": 8
+                        },
+                        {
+                            "id": "647",
+                            "name": "Seminario de Gestión y Organización de Proyectos de Conservación Restauración de Bienes Culturales",
+                            "dependencies": [
+                                "623",
+                                "549"
+                            ],
+                            "weeklyHours": 3
+                        },
+                        {
+                            "id": "632",
+                            "name": "Peritaje y Catalogación de Bienes Culturales",
+                            "dependencies": [
+                                "623"
+                            ],
+                            "weeklyHours": 2
                         }
                     ]
                 }
