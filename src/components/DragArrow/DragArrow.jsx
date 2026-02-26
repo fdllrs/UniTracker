@@ -1,4 +1,4 @@
-import './ArrowsOverlay.css';
+import '../ArrowsOverlay/ArrowsOverlay.css';
 
 /**
  * Renders the dashed arrow that follows the cursor while

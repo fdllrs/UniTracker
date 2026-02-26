@@ -1,4 +1,4 @@
-import CourseCard from './CourseCard';
+import CourseCard from '../CourseCard/CourseCard';
 import './SemesterRow.css';
 
 export default function SemesterRow({

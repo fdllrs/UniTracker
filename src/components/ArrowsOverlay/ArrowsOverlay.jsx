@@ -1,5 +1,5 @@
 import { useEffect, useRef, useCallback } from 'react';
-import { STATUS_COLORS } from '../hooks/useStudyPlan';
+import { STATUS_COLORS } from '../../hooks/useStudyPlan';
 import './ArrowsOverlay.css';
 
 export default function ArrowsOverlay({

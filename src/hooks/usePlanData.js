@@ -1,6 +1,5 @@
 import { useState, useCallback, useMemo } from 'react';
-import DEFAULT_STUDY_PLAN from '../data/csComp-UBA-v2023';
-import EMPTY_PLAN from '../data/emptyPlan';
+import EMPTY_PLAN from '../data/emptyPlan.json';
 
 function loadFromStorage(key, fallback) {
     try {
@@ -16,7 +15,7 @@ function loadFromStorage(key, fallback) {
  */
 export default function usePlanData() {
     const [studyPlan, setStudyPlan] = useState(() =>
-        loadFromStorage('unitracker-plan', structuredClone(DEFAULT_STUDY_PLAN))
+        loadFromStorage('unitracker-plan', structuredClone(EMPTY_PLAN))
     );
 
     // Flatten all courses

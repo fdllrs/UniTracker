@@ -1,0 +1,92 @@
+.templates-modal {
+    width: 90%;
+    max-height: 500px;
+    max-width: 500px;
+}
+
+.templates-modal__tabs {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(100, 130, 180, 0.2);
+}
+
+.templates-modal__tab-btn {
+    background: transparent;
+    border: none;
+    padding: 0.6rem 0.2rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    border-bottom: 2px solid transparent;
+    font-weight: 400;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+
+.templates-modal__tab-btn--active {
+    color: #22d3ee;
+    border-bottom: 2px solid #22d3ee;
+    font-weight: 600;
+}
+
+.templates-modal__tab-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.templates-modal__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.templates-modal__list-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.templates-modal__empty {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    padding: 2rem 1rem;
+}
+
+.templates-modal__add-btn {
+    border: 1px dashed rgba(100, 130, 180, 0.4);
+    color: #22d3ee;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.templates-modal__save-form {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(100, 130, 180, 0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 0.5rem;
+}
+
+.templates-modal__save-title {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.templates-modal__field {
+    margin-bottom: 0.6rem;
+}
+
+.templates-modal__field--last {
+    margin-bottom: 1rem;
+}
+
+.templates-modal__save-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}

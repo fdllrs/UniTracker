@@ -307,3 +307,34 @@
     border-color: #ef4444;
     color: #ef4444;
 }
+
+/* ===== IMPORT / EXPORT BUTTONS ROW ===== */
+.config-menu__actions-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 0.2rem 0.5rem;
+}
+
+.config-menu__action-btn {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.4rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.config-menu__action-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.config-menu__divider--compact {
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}

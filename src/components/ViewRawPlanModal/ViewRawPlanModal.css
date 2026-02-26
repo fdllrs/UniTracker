@@ -1,0 +1,19 @@
+.raw-modal {
+    max-width: 600px;
+    width: 90%;
+}
+
+.raw-modal__text {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.raw-modal__textarea {
+    width: 100%;
+    box-sizing: border-box;
+    height: 300px;
+    resize: vertical;
+    font-family: monospace;
+    line-height: 1.4;
+    margin: 1.2rem 0;
+}

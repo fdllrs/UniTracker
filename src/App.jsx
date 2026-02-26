@@ -10,17 +10,19 @@ import useCardMove from './hooks/useCardMove';
 import usePreferences from './hooks/usePreferences';
 
 // Components
-import Header from './components/Header';
-import SemesterRow from './components/SemesterRow';
-import ArrowsOverlay from './components/ArrowsOverlay';
-import DragArrow from './components/DragArrow';
-import FloatingCard from './components/FloatingCard';
-import EditFloatingBar from './components/EditFloatingBar';
-import InputModal from './components/InputModal';
-import Toast from './components/Toast';
-import ConfigMenu from './components/ConfigMenu';
-import PreferencesModal from './components/PreferencesModal';
-import TemplatesModal from './components/TemplatesModal';
+import Header from './components/Header/Header';
+import SemesterRow from './components/SemesterRow/SemesterRow';
+import ArrowsOverlay from './components/ArrowsOverlay/ArrowsOverlay';
+import DragArrow from './components/DragArrow/DragArrow';
+import FloatingCard from './components/FloatingCard/FloatingCard';
+import EditFloatingBar from './components/EditFloatingBar/EditFloatingBar';
+import InputModal from './components/InputModal/InputModal';
+import Toast from './components/Toast/Toast';
+import ConfigMenu from './components/ConfigMenu/ConfigMenu';
+import PreferencesModal from './components/PreferencesModal/PreferencesModal';
+import TemplatesModal from './components/TemplatesModal/TemplatesModal';
+import ImportPlanModal from './components/ImportPlanModal/ImportPlanModal';
+import ViewRawPlanModal from './components/ViewRawPlanModal/ViewRawPlanModal';
 
 export default function App() {
     // ─── Domain state ───────────────────────────────────────
@@ -52,6 +54,8 @@ export default function App() {
     const [pendingAddSemIndex, setPendingAddSemIndex] = useState(null);
     const [showPrefsModal, setShowPrefsModal] = useState(false);
     const [showTemplatesModal, setShowTemplatesModal] = useState(false);
+    const [showImportModal, setShowImportModal] = useState(false);
+    const [showRawPlanModal, setShowRawPlanModal] = useState(false);
     const [deleteAnim, setDeleteAnim] = useState(false);
 
     // ─── Handlers ───────────────────────────────────────────
@@ -207,6 +211,30 @@ export default function App() {
         });
     }, [updatePlan, resetStatuses, resetGrades, editMode, confirm, toast]);
 
+    const handleExportPlan = useCallback(() => {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(studyPlan, null, 2));
+        const downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", (studyPlan.plan || "plan").replace(/\s+/g, '_') + ".json");
+        document.body.appendChild(downloadAnchorNode);
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+    }, [studyPlan]);
+
+    const handleImportPlan = useCallback((importedPlan) => {
+        setShowImportModal(false);
+        setDeleteAnim(true);
+        setTimeout(() => {
+            updatePlan(structuredClone(importedPlan));
+            resetStatuses();
+            resetGrades();
+            localStorage.setItem('unitracker-plan', JSON.stringify(importedPlan));
+            editMode.forceExit();
+            toast.show('✓ Plan importado exitosamente');
+            setTimeout(() => setDeleteAnim(false), 200);
+        }, 600);
+    }, [updatePlan, resetStatuses, resetGrades, editMode, toast]);
+
     // ─── Derived values ─────────────────────────────────────
     const activeCards = useMemo(() => {
         if (!highlightedCourse) return null;
@@ -249,6 +277,9 @@ export default function App() {
                 onDeletePlan={handleConfigDeletePlan}
                 onPreferences={() => setShowPrefsModal(true)}
                 onTemplates={() => setShowTemplatesModal(true)}
+                onImportPlan={() => setShowImportModal(true)}
+                onExportPlan={handleExportPlan}
+                onViewRawPlan={() => setShowRawPlanModal(true)}
             />
 
             <EditFloatingBar
@@ -371,6 +402,20 @@ export default function App() {
                 open={showTemplatesModal}
                 onClose={() => setShowTemplatesModal(false)}
                 onSelect={handleTemplateSelect}
+                currentPlan={studyPlan}
+                confirm={confirm}
+            />
+
+            <ImportPlanModal
+                open={showImportModal}
+                onClose={() => setShowImportModal(false)}
+                onImport={handleImportPlan}
+            />
+
+            <ViewRawPlanModal
+                open={showRawPlanModal}
+                onClose={() => setShowRawPlanModal(false)}
+                plan={studyPlan}
             />
 
             {/* Delete animation overlay */}

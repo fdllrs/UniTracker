@@ -1,4 +1,4 @@
-import './ConfigMenu.css';
+import '../ConfigMenu/ConfigMenu.css';
 
 /**
  * Floating edit toolbar that appears at the top of the screen during edit mode.

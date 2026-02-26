@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { STATUS_LABELS } from '../hooks/useStudyPlan';
+import { STATUS_LABELS } from '../../hooks/useStudyPlan';
 import './CourseCard.css';
 
 export default function CourseCard({

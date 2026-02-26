@@ -1,0 +1,410 @@
+{
+    "plan": "Plan de Estudios 07-1",
+        "subtitle": "Licenciatura en Conservación - Restauración de Bienes Culturales",
+            "years": [
+                {
+                    "year": 1,
+                    "label": "1er Año",
+                    "semesters": [
+                        {
+                            "semester": 1,
+                            "label": "1° Cuatrimestre",
+                            "courses": [
+                                {
+                                    "id": "67",
+                                    "name": "Física, Química, Biología I",
+                                    "dependencies": [],
+                                    "weeklyHours": 2
+                                },
+                                {
+                                    "id": "587",
+                                    "name": "Tecnología de los Materiales I",
+                                    "dependencies": [],
+                                    "weeklyHours": 2
+                                },
+                                {
+                                    "id": "62",
+                                    "name": "Técnicas de la Conservación Restauración I",
+                                    "dependencies": [],
+                                    "weeklyHours": 2
+                                },
+                                {
+                                    "id": "37",
+                                    "name": "Oficio y Técnica de las Artes Visuales I: Dibujo",
+                                    "dependencies": [],
+                                    "weeklyHours": 4
+                                },
+                                {
+                                    "id": "383",
+                                    "name": "Prácticas de Laboratorio Física, Química, Biología I",
+                                    "dependencies": [],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "57",
+                                    "name": "Historia de las Artes Visuales I",
+                                    "dependencies": [],
+                                    "weeklyHours": 2
+                                },
+                                {
+                                    "id": "66",
+                                    "name": "Historia de la Restauración I",
+                                    "dependencies": [],
+                                    "weeklyHours": 2
+                                },
+                                {
+                                    "id": "64",
+                                    "name": "Conservación museológica",
+                                    "dependencies": [],
+                                    "weeklyHours": 2
+                                }
+                            ]
+                        },
+                        {
+                            "semester": 2,
+                            "label": "2° Cuatrimestre",
+                            "courses": [
+                                {
+                                    "id": "376",
+                                    "name": "Física, Química, Biología II",
+                                    "dependencies": [
+                                        "67"
+                                    ],
+                                    "weeklyHours": 2
+                                },
+                                {
+                                    "id": "133",
+                                    "name": "Tecnología de los Materiales II",
+                                    "dependencies": [
+                                        "587"
+                                    ],
+                                    "weeklyHours": 2
+                                },
+                                {
+                                    "id": "386",
+                                    "name": "Técnicas Fotográficas",
+                                    "dependencies": [],
+                                    "weeklyHours": 2
+                                },
+                                {
+                                    "id": "63",
+                                    "name": "Técnicas de la Conservación Restauración II",
+                                    "dependencies": [
+                                        "62"
+                                    ],
+                                    "weeklyHours": 2
+                                },
+                                {
+                                    "id": "40",
+                                    "name": "Oficio y Técnica de las Artes Visuales II Dibujo",
+                                    "dependencies": [
+                                        "37"
+                                    ],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "51",
+                                    "name": "Lenguaje Visual I",
+                                    "dependencies": [],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "384",
+                                    "name": "Prácticas de Laboratorio Física, Química, Biología II",
+                                    "dependencies": [
+                                        "67",
+                                        "383"
+                                    ],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "58",
+                                    "name": "Historia de las Artes Visuales II",
+                                    "dependencies": [
+                                        "57"
+                                    ],
+                                    "weeklyHours": 2
+                                },
+                                {
+                                    "id": "515",
+                                    "name": "Historia de la Restauración II",
+                                    "dependencies": [
+                                        "66"
+                                    ],
+                                    "weeklyHours": 2
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "year": 2,
+                    "label": "2do Año",
+                    "semesters": [
+                        {
+                            "semester": "Anual",
+                            "label": "Anual",
+                            "courses": [
+                                {
+                                    "id": "54",
+                                    "name": "Dibujo. Sistema de Representación I",
+                                    "dependencies": [],
+                                    "weeklyHours": 3
+                                }
+                            ]
+                        },
+                        {
+                            "semester": 3,
+                            "label": "3° Cuatrimestre",
+                            "courses": [
+                                {
+                                    "id": "429",
+                                    "name": "Física, Química, Biología III",
+                                    "dependencies": [
+                                        "376"
+                                    ],
+                                    "weeklyHours": 2
+                                },
+                                {
+                                    "id": "594",
+                                    "name": "Tecnología de los Materiales III",
+                                    "dependencies": [
+                                        "133"
+                                    ],
+                                    "weeklyHours": 2
+                                },
+                                {
+                                    "id": "36",
+                                    "name": "Oficio y Técnica de las Artes Visuales I Pintura",
+                                    "dependencies": [],
+                                    "weeklyHours": 4
+                                },
+                                {
+                                    "id": "41",
+                                    "name": "Oficio y Técnica de las Artes Visuales III Dibujo",
+                                    "dependencies": [
+                                        "40"
+                                    ],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "52",
+                                    "name": "Lenguaje Visual II",
+                                    "dependencies": [
+                                        "51"
+                                    ],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "433",
+                                    "name": "Prácticas de Laboratorio Física, Química, Biología III",
+                                    "dependencies": [
+                                        "376",
+                                        "384"
+                                    ],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "59",
+                                    "name": "Historia de las Artes Visuales III",
+                                    "dependencies": [
+                                        "58"
+                                    ],
+                                    "weeklyHours": 2
+                                },
+                                {
+                                    "id": "549",
+                                    "name": "Documentación y Metodología",
+                                    "dependencies": [
+                                        "386"
+                                    ],
+                                    "weeklyHours": 2
+                                }
+                            ]
+                        },
+                        {
+                            "semester": 4,
+                            "label": "4° Cuatrimestre",
+                            "courses": [
+                                {
+                                    "id": "514",
+                                    "name": "Física, Química, Biología IV",
+                                    "dependencies": [
+                                        "429"
+                                    ],
+                                    "weeklyHours": 2
+                                },
+                                {
+                                    "id": "45",
+                                    "name": "Oficio y Técnica de las Artes Visuales I Grabado y Arte Impreso",
+                                    "dependencies": [],
+                                    "weeklyHours": 4
+                                },
+                                {
+                                    "id": "42",
+                                    "name": "Oficio y Técnica de las Artes Visuales I Escultura",
+                                    "dependencies": [],
+                                    "weeklyHours": 4
+                                },
+                                {
+                                    "id": "53",
+                                    "name": "Lenguaje Visual III",
+                                    "dependencies": [
+                                        "52"
+                                    ],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "550",
+                                    "name": "Prácticas de Laboratorio Física, Química, Biología IV",
+                                    "dependencies": [
+                                        "429",
+                                        "433"
+                                    ],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "581",
+                                    "name": "Prácticas de Conservación - Restauración I",
+                                    "dependencies": [
+                                        "67",
+                                        "383",
+                                        "587",
+                                        "62",
+                                        "37",
+                                        "36",
+                                        "51",
+                                        "64",
+                                        "66",
+                                        "57"
+                                    ],
+                                    "weeklyHours": 9
+                                },
+                                {
+                                    "id": "434",
+                                    "name": "Conservación Preventiva I",
+                                    "dependencies": [
+                                        "67",
+                                        "383",
+                                        "587",
+                                        "62",
+                                        "37",
+                                        "36",
+                                        "51",
+                                        "64",
+                                        "66",
+                                        "57"
+                                    ],
+                                    "weeklyHours": 2
+                                },
+                                {
+                                    "id": "131",
+                                    "name": "Historia de las Artes Visuales IV",
+                                    "dependencies": [
+                                        "59"
+                                    ],
+                                    "weeklyHours": 2
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "year": 3,
+                    "label": "3er Año",
+                    "semesters": [
+                        {
+                            "semester": 5,
+                            "label": "5° Cuatrimestre",
+                            "courses": [
+                                {
+                                    "id": "48",
+                                    "name": "Oficio y Técnica de las Artes Visuales I Cerámica",
+                                    "dependencies": [],
+                                    "weeklyHours": 4
+                                },
+                                {
+                                    "id": "50",
+                                    "name": "Oficio y Técnica de las Artes Visuales I Digitalización de imágenes",
+                                    "dependencies": [],
+                                    "weeklyHours": 4
+                                },
+                                {
+                                    "id": "617",
+                                    "name": "Prácticas de Laboratorio Física, Química, Biología V",
+                                    "dependencies": [
+                                        "514",
+                                        "550"
+                                    ],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "619",
+                                    "name": "Conservación Restauración Pintura de Caballete y Mural",
+                                    "dependencies": [
+                                        "581",
+                                        "434",
+                                        "376",
+                                        "384",
+                                        "133",
+                                        "63",
+                                        "40",
+                                        "42",
+                                        "52",
+                                        "515",
+                                        "58"
+                                    ],
+                                    "weeklyHours": 8
+                                },
+                                {
+                                    "id": "478",
+                                    "name": "Conservación Preventiva II",
+                                    "dependencies": [
+                                        "434",
+                                        "581",
+                                        "376",
+                                        "384",
+                                        "133",
+                                        "63",
+                                        "40",
+                                        "42",
+                                        "52",
+                                        "515",
+                                        "58"
+                                    ],
+                                    "weeklyHours": 2
+                                },
+                                {
+                                    "id": "132",
+                                    "name": "Historia de las Artes Visuales V",
+                                    "dependencies": [
+                                        "131"
+                                    ],
+                                    "weeklyHours": 2
+                                },
+                                {
+                                    "id": "591",
+                                    "name": "Idioma I",
+                                    "dependencies": [],
+                                    "weeklyHours": 2
+                                }
+                            ]
+                        },
+                        {
+                            "semester": 6,
+                            "label": "6° Cuatrimestre",
+                            "courses": [
+                                {
+                                    "id": "683",
+                                    "name": "Oficio y Técnica de las Artes Visuales II (a elección entre: (Pintura - Grabado y Arte Impreso - Escultura)",
+                                    "dependencies": [
+                                        "Nivel I OTAV elegida"
+                                    ],
+                                    "weeklyHours": 6
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+}

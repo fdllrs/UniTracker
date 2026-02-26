@@ -1,0 +1,496 @@
+{
+    "plan": "Plan de Estudios K22",
+        "subtitle": "Ingeniería Electrónica",
+            "years": [
+                {
+                    "year": 1,
+                    "label": "1er Año",
+                    "semesters": [
+                        {
+                            "semester": 1,
+                            "label": "1C",
+                            "courses": [
+                                {
+                                    "id": "12.67",
+                                    "name": "Química General",
+                                    "dependencies": [],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "71.93",
+                                    "name": "Principios de Informática",
+                                    "dependencies": [],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "92.01",
+                                    "name": "Análisis Matemático I",
+                                    "dependencies": [],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "93.18",
+                                    "name": "Álgebra Lineal",
+                                    "dependencies": [],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "94.33",
+                                    "name": "Tecnología y Sociedad",
+                                    "dependencies": [],
+                                    "weeklyHours": 3
+                                }
+                            ]
+                        },
+                        {
+                            "semester": 2,
+                            "label": "2C",
+                            "courses": [
+                                {
+                                    "id": "25.01",
+                                    "name": "Fundamentos de Electrónica",
+                                    "dependencies": [],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "25.02",
+                                    "name": "Programación I",
+                                    "dependencies": [
+                                        "71.93"
+                                    ],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "31.08",
+                                    "name": "Sistemas de Representación",
+                                    "dependencies": [],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "92.02",
+                                    "name": "Análisis Matemático II",
+                                    "dependencies": [
+                                        "92.01",
+                                        "93.18"
+                                    ],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "93.41",
+                                    "name": "Física I",
+                                    "dependencies": [
+                                        "92.01"
+                                    ],
+                                    "weeklyHours": 6
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "year": 2,
+                    "label": "2do Año",
+                    "semesters": [
+                        {
+                            "semester": 3,
+                            "label": "1C",
+                            "courses": [
+                                {
+                                    "id": "25.03",
+                                    "name": "Algoritmos y Estructuras de Datos",
+                                    "dependencies": [
+                                        "25.02"
+                                    ],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "92.03",
+                                    "name": "Análisis Matemático III",
+                                    "dependencies": [
+                                        "92.02"
+                                    ],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "93.16",
+                                    "name": "Matemática Discreta",
+                                    "dependencies": [],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "93.24",
+                                    "name": "Probabilidad y Estadística",
+                                    "dependencies": [
+                                        "92.02"
+                                    ],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "93.42",
+                                    "name": "Física II",
+                                    "dependencies": [
+                                        "92.02",
+                                        "93.41"
+                                    ],
+                                    "weeklyHours": 6
+                                }
+                            ]
+                        },
+                        {
+                            "semester": 4,
+                            "label": "2C",
+                            "courses": [
+                                {
+                                    "id": "16.55",
+                                    "name": "Biología",
+                                    "dependencies": [
+                                        "12.67"
+                                    ],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "25.10",
+                                    "name": "Teoría de Circuitos I",
+                                    "dependencies": [
+                                        "25.01",
+                                        "92.03",
+                                        "93.42"
+                                    ],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "92.04",
+                                    "name": "Análisis Matemático IV",
+                                    "dependencies": [
+                                        "92.03"
+                                    ],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "93.07",
+                                    "name": "Métodos Numéricos",
+                                    "dependencies": [
+                                        "25.02",
+                                        "92.03"
+                                    ],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "93.43",
+                                    "name": "Física III",
+                                    "dependencies": [
+                                        "93.42"
+                                    ],
+                                    "weeklyHours": 6
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "year": 3,
+                    "label": "3er Año",
+                    "semesters": [
+                        {
+                            "semester": 5,
+                            "label": "1C",
+                            "courses": [
+                                {
+                                    "id": "25.12",
+                                    "name": "Tecnología de Materiales Electrónicos",
+                                    "dependencies": [
+                                        "12.67",
+                                        "93.43"
+                                    ],
+                                    "weeklyHours": 4
+                                },
+                                {
+                                    "id": "25.13",
+                                    "name": "Laboratorio de Electrónica I",
+                                    "dependencies": [
+                                        "25.10"
+                                    ],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "25.18",
+                                    "name": "Física Electrónica",
+                                    "dependencies": [
+                                        "25.10",
+                                        "93.43"
+                                    ],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "92.07",
+                                    "name": "Análisis Matemático V",
+                                    "dependencies": [
+                                        "92.04"
+                                    ],
+                                    "weeklyHours": 4
+                                },
+                                {
+                                    "id": "93.61",
+                                    "name": "Física IV",
+                                    "dependencies": [
+                                        "93.43"
+                                    ],
+                                    "weeklyHours": 4
+                                },
+                                {
+                                    "id": "94.43",
+                                    "name": "Metodología del Diseño",
+                                    "dependencies": [
+                                        "31.08"
+                                    ],
+                                    "weeklyHours": 3
+                                }
+                            ]
+                        },
+                        {
+                            "semester": 6,
+                            "label": "2C",
+                            "courses": [
+                                {
+                                    "id": "25.14",
+                                    "name": "Teoría de Circuitos 2",
+                                    "dependencies": [
+                                        "25.10",
+                                        "92.04"
+                                    ],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "25.15",
+                                    "name": "Electrónica I",
+                                    "dependencies": [
+                                        "25.13",
+                                        "25.18"
+                                    ],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "25.16",
+                                    "name": "Laboratorio de Electrónica 2",
+                                    "dependencies": [
+                                        "25.13"
+                                    ],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "25.17",
+                                    "name": "Electrónica II",
+                                    "dependencies": [
+                                        "25.13",
+                                        "92.04"
+                                    ],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "94.44",
+                                    "name": "Proyecto Interdisciplinario",
+                                    "dependencies": [
+                                        "25.13",
+                                        "94.43"
+                                    ],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "94.51",
+                                    "name": "Inglés I",
+                                    "dependencies": [],
+                                    "weeklyHours": 0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "year": 4,
+                    "label": "4to Año",
+                    "semesters": [
+                        {
+                            "semester": 7,
+                            "label": "1C",
+                            "courses": [
+                                {
+                                    "id": "25.20",
+                                    "name": "Análisis de Señales y Sistemas Digitales",
+                                    "dependencies": [
+                                        "25.03",
+                                        "25.14"
+                                    ],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "25.21",
+                                    "name": "Electrónica III",
+                                    "dependencies": [
+                                        "25.15"
+                                    ],
+                                    "weeklyHours": 4
+                                },
+                                {
+                                    "id": "25.22",
+                                    "name": "Electromagnetismo",
+                                    "dependencies": [
+                                        "92.07",
+                                        "93.61"
+                                    ],
+                                    "weeklyHours": 4
+                                },
+                                {
+                                    "id": "25.23",
+                                    "name": "Sistemas de Control",
+                                    "dependencies": [
+                                        "25.14"
+                                    ],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "25.24",
+                                    "name": "Laboratorio de Electrónica 3",
+                                    "dependencies": [
+                                        "25.16",
+                                        "25.17"
+                                    ],
+                                    "weeklyHours": 4
+                                }
+                            ]
+                        },
+                        {
+                            "semester": 8,
+                            "label": "2C",
+                            "courses": [
+                                {
+                                    "id": "11.15",
+                                    "name": "Organización Industrial",
+                                    "dependencies": [],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "25.26",
+                                    "name": "Transmisión de la Información",
+                                    "dependencies": [
+                                        "25.20",
+                                        "93.24"
+                                    ],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "25.27",
+                                    "name": "Sistemas Embebidos",
+                                    "dependencies": [
+                                        "25.20",
+                                        "25.21"
+                                    ],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "25.28",
+                                    "name": "Electrónica IV",
+                                    "dependencies": [
+                                        "25.21",
+                                        "25.23",
+                                        "25.24"
+                                    ],
+                                    "weeklyHours": 4
+                                },
+                                {
+                                    "id": "61.27",
+                                    "name": "Análisis de Coyuntura Económica",
+                                    "dependencies": [],
+                                    "weeklyHours": 3
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "year": 5,
+                    "label": "5to Año",
+                    "semesters": [
+                        {
+                            "semester": 9,
+                            "label": "1C",
+                            "courses": [
+                                {
+                                    "id": "12.83",
+                                    "name": "Seguridad Ocupacional y Ambiental",
+                                    "dependencies": [
+                                        "16.55"
+                                    ],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "25.30",
+                                    "name": "Electrónica V",
+                                    "dependencies": [
+                                        "25.26",
+                                        "25.28"
+                                    ],
+                                    "weeklyHours": 4
+                                },
+                                {
+                                    "id": "25.31",
+                                    "name": "Proyectos Electrónicos",
+                                    "dependencies": [
+                                        "25.27",
+                                        "94.44"
+                                    ],
+                                    "weeklyHours": 4
+                                },
+                                {
+                                    "id": "61.16",
+                                    "name": "Introducción a las Finanzas",
+                                    "dependencies": [
+                                        "61.27"
+                                    ],
+                                    "weeklyHours": 3
+                                }
+                            ]
+                        },
+                        {
+                            "semester": 10,
+                            "label": "2C",
+                            "courses": [
+                                {
+                                    "id": "61.31",
+                                    "name": "Derecho para Ingenieros",
+                                    "dependencies": [],
+                                    "weeklyHours": 3
+                                },
+                                {
+                                    "id": "94.65",
+                                    "name": "Práctica Profesional Supervisada",
+                                    "dependencies": [],
+                                    "weeklyHours": 0
+                                },
+                                {
+                                    "id": "ELECTIVAS",
+                                    "name": "ELECTIVAS",
+                                    "dependencies": [],
+                                    "weeklyHours": 27
+                                },
+                                {
+                                    "id": "25.32",
+                                    "name": "Proyecto Integrador (anual)",
+                                    "dependencies": [
+                                        "25.31"
+                                    ],
+                                    "weeklyHours": 6
+                                },
+                                {
+                                    "id": "94.52",
+                                    "name": "Inglés II",
+                                    "dependencies": [
+                                        "94.51"
+                                    ],
+                                    "weeklyHours": 0
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+}

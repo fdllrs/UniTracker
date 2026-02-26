@@ -210,3 +210,111 @@
 .prefs-modal__switch-input:focus-visible+.prefs-modal__switch {
     box-shadow: 0 0 0 3px rgba(100, 160, 255, 0.25);
 }
+
+/* ─── Generic Modal Buttons & Layout (for secondary modals) ─── */
+.prefs-modal__actions {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+    justify-content: flex-end;
+}
+
+.prefs-modal__btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.prefs-modal__btn--primary {
+    background: linear-gradient(135deg, rgba(34, 211, 238, 0.9), rgba(56, 217, 122, 0.9));
+    color: #060a14;
+    box-shadow: 0 2px 8px rgba(34, 211, 238, 0.2);
+}
+
+.prefs-modal__btn--primary:hover:not(:disabled) {
+    box-shadow: 0 4px 12px rgba(34, 211, 238, 0.3);
+    transform: translateY(-1px);
+}
+
+.prefs-modal__btn--primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: rgba(100, 130, 180, 0.3);
+    color: var(--text-muted);
+    box-shadow: none;
+}
+
+.prefs-modal__btn--secondary {
+    background: rgba(100, 130, 180, 0.1);
+    color: var(--text-primary);
+    border: 1px solid rgba(100, 130, 180, 0.2);
+}
+
+.prefs-modal__btn--secondary:hover {
+    background: rgba(100, 130, 180, 0.2);
+}
+
+.prefs-modal__btn--ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid transparent;
+}
+
+.prefs-modal__btn--ghost:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+}
+
+.prefs-modal__btn--danger-icon {
+    background: transparent;
+    color: #ef4444;
+    border: none;
+    padding: 0.2rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.prefs-modal__btn--danger-icon:hover {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.prefs-modal__list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(100, 130, 180, 0.15);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--text-primary);
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.prefs-modal__list-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(100, 160, 255, 0.3);
+}
+
+.prefs-modal__list-item-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.prefs-modal__list-item-subtitle {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}

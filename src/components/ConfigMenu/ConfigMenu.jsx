@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import './ConfigMenu.css';
 
-export default function ConfigMenu({ editMode, onEditPlan, onReset, onDeletePlan, onPreferences, onTemplates }) {
+export default function ConfigMenu({ editMode, onEditPlan, onReset, onDeletePlan, onPreferences, onTemplates, onImportPlan, onExportPlan, onViewRawPlan }) {
     const [open, setOpen] = useState(false);
     const menuRef = useRef(null);
 
@@ -83,8 +83,21 @@ export default function ConfigMenu({ editMode, onEditPlan, onReset, onDeletePlan
                         onClick={() => { setOpen(false); onTemplates(); }}
                     >
                         <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12zM10 9h8v2h-8zm0 3h4v2h-4zm0-6h8v2h-8z" /></svg>
-                        <span>Planes de ejemplo</span>
+                        <span>Librería de planes</span>
                     </button>
+
+                    <div className="config-menu__divider config-menu__divider--compact" />
+                    <div className="config-menu__actions-row">
+                        <button title="Importar JSON" className="config-menu__action-btn" onClick={() => { setOpen(false); onImportPlan(); }}>
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" /></svg>
+                        </button>
+                        <button title="Exportar JSON" className="config-menu__action-btn" onClick={() => { setOpen(false); onExportPlan(); }}>
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" /></svg>
+                        </button>
+                        <button title="Ver Raw" className="config-menu__action-btn" onClick={() => { setOpen(false); onViewRawPlan(); }}>
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z" /></svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
